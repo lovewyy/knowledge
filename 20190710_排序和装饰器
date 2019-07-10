@@ -1,0 +1,72 @@
+1、排序：归并和快排
+2、装饰器
+
+# 排序
+## 归并思路：
+1、两个有序序列合并成一个有序序列
+def merge(a, b):
+    la = len(a)
+    lb = len(b)
+    i = j = 0
+    result = []
+    while i < la and j < lb:
+        if a[i] < b[j]:
+            result.append(a[i])
+            i += 1
+        else:
+            result.append(b[j])
+            j += 1
+    result += a[i:]               # 注意在while循环外
+    result += b[j:]
+    return result
+2、一个数组分成两半在执行1，注意终止条件
+def mergeSort(a):
+    la = len(a)
+    if la <= 1:
+        return a
+    mid = int(la / 2)
+    b = mergeSort(a[:mid])
+    c = mergeSort(a[mid:])
+    return merge(b, c)
+  
+## 快排思路：
+1、分区：选择第一个数作为key，i指向第一个数，j指向第二个数，移动j到最后一个数（每当j指向的数小于key，i向前一位，交换i、j指向的数），最后交换第一个数和i指向的数。返回i。
+def partition(a, l, r):
+    key = a[l]
+    i = l
+    for j in range(l+1, r+1):
+        if a[j] < key:
+            i += 1
+            a[i], a[j] = a[j], a[i]
+    a[l], a[i] = a[i], a[l]                 # 注意在for循环外
+    return i
+2、原位排序sort in place，直接对分好的两个区域再分区,注意终止条件。
+def quickSort_(a, l, r):
+    if l < r:
+        i = partition(a, l, r)
+        quickSort_(a, l, i - 1)
+        quickSort_(a, i + 1, r)
+
+def quickSort(a):
+    quickSort_(a, 0, len(a) - 1)
+    return a
+
+# 装饰器
+1、装饰器就是封装函数，不破坏原函数结构的基础上增加原函数功能
+2、闭包：封装函数执行环境
+from functools import wraps
+def 原函数：
+    return
+
+def 加参数的封装函数(“参数”):                 # 可以不用
+    def 封装函数(func):                      # 封装函数
+        @wraps
+        def 加功能的原函数(*arg, **kwargs):
+            “参数”可以在里面使用
+            result = func(*arg, **kwargs)
+            return result
+        return 加功能的原函数
+    return 封装函数
+  
+  @加参数的封装函数（“参数”）                  # 调用
+  原函数()
