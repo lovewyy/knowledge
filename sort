@@ -95,11 +95,11 @@ def timeFunc(func):
         return result
     return time_testn
     
-n = 100
+n = 80
 @timeFunc
 def testn(a):
     # n = 100
-    lista = list(np.random.randint(0, 5, n))
+    lista = list(np.random.randint(0, 5000, n))
     lista = a(lista)
     flag = True
     for i in range(n-1):
@@ -112,7 +112,7 @@ def testn(a):
 @timeFunc
 def testnn(a):
     # n = 100
-    lista = list(np.random.randint(0, 5, n))
+    lista = list(np.random.randint(0, 5000, n))
     a(lista)
     flag = True
     for i in range(n-1):
@@ -121,7 +121,7 @@ def testnn(a):
             break
     return flag
     
-print('快排: ',testnn(quickSort))          # 随机更快
+print('快排: ', testnn(quickSort))          # 随机更快
 print('归并：', testn(mergeSort))           # 不随机更快
 print('选择：', testnn(xzSort))             # 较慢，快于插入、冒泡，但不稳定
 print('插入：', testnn(crSort))             # 慢，快于冒泡
