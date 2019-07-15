@@ -59,8 +59,37 @@
     递归在最后，保存了上一次的结果，主要节约空间，减少少量时间
 
 # 排序
-    冒泡（稳定）、插入（稳定）、选择       On2     基于比较   原位排序
-    快排（不）、归并（稳定）             Onlogn   基于比较   归并不是原位排序
+    冒泡（稳定）、插入（稳定）、选择（不）       On2     基于比较   原位排序
+    快排（不）、归并（稳定）                   Onlogn   基于比较   归并不是原位排序
     桶、计数、基数
 1、为什么插入比冒泡好：只有一个步骤插入，冒泡三个步骤
 2、归并和快排见https://github.com/lovewyy/lxc-github/blob/master/20190710_
+3、冒泡 遍历n-1次，每次找到最大或最小的数（优化：设置exchange flag）
+    def mpSort(a):
+        la = len(a)
+        for i in range(la-1, 0, -1):
+            exchange = False
+            for j in range(0, i):
+                if a[j] > a[j+1]:
+                    a[j], a[j+1] = a[j+1], a[j]
+                    exchange = True
+            if exchange == False:
+                break
+        return a
+4、插入
+
+5、选择
+
+               
+                
+    
+
+
+
+
+
+
+
+
+
+
