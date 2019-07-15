@@ -2,6 +2,7 @@ import numpy as np
 import time
 from functools import wraps
 
+# 分区，在index左边小于，index右边大于
 def partition(a, l, r):
     key = a[l]
     i = l
@@ -12,6 +13,7 @@ def partition(a, l, r):
     a[l], a[i] = a[i], a[l]
     return i
 
+# 将index两边排序，终止条件注意
 def quickSort_(a, l, r):
     if l < r:
         i = partition(a, l, r)
@@ -21,8 +23,9 @@ def quickSort_(a, l, r):
 def quickSort(a):
     la = len(a) - 1
     quickSort_(a, 0, la)
-    return a
+    # return a
 
+# 排序两个有序数组
 def merge(a, b):
     la = len(a)
     lb = len(b)
@@ -40,7 +43,7 @@ def merge(a, b):
     return result
 
 def mergeSort(a):
-    la = len(a)
+    la = len(a)                   # 注意终止条件
     if la <= 1:
         return a
     mid = int(la / 2)
@@ -48,29 +51,7 @@ def mergeSort(a):
     c = mergeSort(a[mid:])
     return merge(b, c)
 
-def timeFunc(func):
-    # 任意参数的原函数
-    @wraps(func)
-    def time_testn(*args, **kwargs):
-        start = time.clock()
-        result = func(*args, **kwargs)
-        print(time.clock() - start)
-        return result
-    return time_testn
-
-@timeFunc
-def testn(a):
-    n = 5000
-    lista = list(np.random.randint(-5, 5, n))
-    lista = a(lista)
-    flag = True
-    for i in range(n-1):
-        if lista[i] > lista[i+1]:
-            flag = False
-            break
-    return flag
-
-    
+# 进行n-1趟遍历，每趟遍历逐次比较并交换，找到最小或最大的那个。
 def mpSort(a):
     la = len(a)
     for i in range(la-1, 0, -1):
@@ -81,10 +62,68 @@ def mpSort(a):
                 exchange = True
         if exchange == False:
             break
-    return a
+    # return a
 
+# 进行n-1趟遍历，每趟遍历逐次与最小（大）值比较，记录index，找到最小或最大的那个。
+# 减少交换的次数（但是不稳定）
+def xzSort(a):
+    la = len(a)
+    for i in range(la - 1, 0 , -1):
+        max = i
+        for j in range(0, i):
+            if a[j] > a[max]:
+                max = j
+        a[max], a[i] = a[i], a[max]
+    # return a
+
+# 插入到有序数组里面，每趟从有序数组的后面遍历
+def crSort(a):
+    la = len(a)
+    for i in range(1, la):
+        for j in range(i - 1, -1, -1):
+            if a[i] < a[j]:
+                a[i], a[j] = a[j], a[i]
+                i -= 1
     
-print(testn(quickSort))          # 随机更快
-print(testn(mergeSort))          # 不随机更快
-print(testn(mpSort))             # 慢
+def timeFunc(func):
+    # 任意参数的原函数
+    @wraps(func)
+    def time_testn(*args, **kwargs):
+        start = time.clock()
+        result = func(*args, **kwargs)
+        print(*args, time.clock() - start)
+        return result
+    return time_testn
+    
+n = 100
+@timeFunc
+def testn(a):
+    # n = 100
+    lista = list(np.random.randint(0, 5, n))
+    lista = a(lista)
+    flag = True
+    for i in range(n-1):
+        if lista[i] > lista[i+1]:
+            flag = False
+            break
+    return flag
+
+# in place
+@timeFunc
+def testnn(a):
+    # n = 100
+    lista = list(np.random.randint(0, 5, n))
+    a(lista)
+    flag = True
+    for i in range(n-1):
+        if lista[i] > lista[i+1]:
+            flag = False
+            break
+    return flag
+    
+print('快排: ',testnn(quickSort))          # 随机更快
+print('归并：', testn(mergeSort))           # 不随机更快
+print('选择：', testnn(xzSort))             # 较慢，快于插入、冒泡，但不稳定
+print('插入：', testnn(crSort))             # 慢，快于冒泡
+print('冒泡：', testnn(mpSort))             # 慢
 print(testn.__name__)
