@@ -63,22 +63,14 @@
     快排（不）、归并（稳定）                   Onlogn   基于比较   归并不是原位排序
     桶、计数、基数
 1、为什么插入比冒泡好：只有一个步骤插入，冒泡三个步骤
-2、归并和快排见https://github.com/lovewyy/lxc-github/blob/master/20190710_
+2、快排 分区，选择第一数作为key，从第二个数开始遍历，如果小于key，i+1，交换i和j，最后再交换i和第一个数，返回index
+       index左边小于index，右边大于index，递归
+   归并 排列两个有序数组，返回一个；递归地分成两个数组再合并成一个
 3、冒泡 遍历n-1次，每次找到最大或最小的数（优化：设置exchange flag）
-    def mpSort(a):
-        la = len(a)
-        for i in range(la-1, 0, -1):
-            exchange = False
-            for j in range(0, i):
-                if a[j] > a[j+1]:
-                    a[j], a[j+1] = a[j+1], a[j]
-                    exchange = True
-            if exchange == False:
-                break
-        return a
-4、插入
+4、插入 从有序数组中插入一个数，从这个有序的序列从后向前比较交换
+5、选择 遍历n-1趟，每趟找到最大（小）值的index，和最后（前）一个数交换，减少了交换次数
 
-5、选择
+
 
                
                 
