@@ -1,0 +1,90 @@
+import numpy as np
+import time
+from functools import wraps
+
+def partition(a, l, r):
+    key = a[l]
+    i = l
+    for j in range(l+1, r+1):
+        if a[j] <= key:
+            i += 1
+            a[i], a[j] = a[j], a[i]
+    a[l], a[i] = a[i], a[l]
+    return i
+
+def quickSort_(a, l, r):
+    if l < r:
+        i = partition(a, l, r)
+        quickSort_(a, l, i-1)
+        quickSort_(a, i+1, r)
+
+def quickSort(a):
+    la = len(a) - 1
+    quickSort_(a, 0, la)
+    return a
+
+def merge(a, b):
+    la = len(a)
+    lb = len(b)
+    i = j = 0
+    result = []
+    while i < la and j < lb:
+        if a[i] < b[j]:
+            result.append(a[i])
+            i += 1
+        else:
+            result.append(b[j])
+            j += 1
+    result += a[i:]
+    result += b[j:]
+    return result
+
+def mergeSort(a):
+    la = len(a)
+    if la <= 1:
+        return a
+    mid = int(la / 2)
+    b = mergeSort(a[:mid])
+    c = mergeSort(a[mid:])
+    return merge(b, c)
+
+def timeFunc(func):
+    # 任意参数的原函数
+    @wraps(func)
+    def time_testn(*args, **kwargs):
+        start = time.clock()
+        result = func(*args, **kwargs)
+        print(time.clock() - start)
+        return result
+    return time_testn
+
+@timeFunc
+def testn(a):
+    n = 5000
+    lista = list(np.random.randint(-5, 5, n))
+    lista = a(lista)
+    flag = True
+    for i in range(n-1):
+        if lista[i] > lista[i+1]:
+            flag = False
+            break
+    return flag
+
+    
+def mpSort(a):
+    la = len(a)
+    for i in range(la-1, 0, -1):
+        exchange = False
+        for j in range(0, i):
+            if a[j] > a[j+1]:
+                a[j], a[j+1] = a[j+1], a[j]
+                exchange = True
+        if exchange == False:
+            break
+    return a
+
+    
+print(testn(quickSort))          # 随机更快
+print(testn(mergeSort))          # 不随机更快
+print(testn(mpSort))             # 慢
+print(testn.__name__)
