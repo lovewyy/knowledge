@@ -6,3 +6,9 @@ https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
 
 mAP
 https://blog.csdn.net/hsqyc/article/details/81702437
+
+回到问题本身：最好的开源目标检测算法？是指框架还是精度最高的算法实现呢？如果都指的话大概是mmdet中的cascade mask rcnn x101 dcn版本吧？
+坑点也会有一些，如果自己深度使用的话，建议把mmcv和mmdet不要装到python package，而是作为母目录下面的两个文件夹，方便自己修改。
+
+
+
