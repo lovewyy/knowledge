@@ -33,3 +33,6 @@ https://pytorch-cn.readthedocs.io/zh/latest/
 
 pytorch backward
 https://www.cnblogs.com/JeasonIsCoding/p/10164948.html
+
+下载预训练模型
+https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
