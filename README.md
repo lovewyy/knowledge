@@ -7,3 +7,4 @@ DCIC2019-bar数钢筋比赛
 数据结构与算法
 操作系统
 v8
+mmdetection
