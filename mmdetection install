@@ -1,57 +1,73 @@
-mmdetection 版本： 0.6.0(2019.7.20时最新版）
-安装在open-mmlab环境上
-
-mmdetection的要求：
-https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
-
-Linux
-Python 3.5+ 
-PyTorch 1.0+ or PyTorch-nightly
-CUDA 9.0+
-NCCL 2+
-GCC 4.9+
-mmcv
-
+一、说明
+安装的mmdetection版本： 0.6.0(2019.7.20时最新版） 安装在open-mmlab环境上 mmcv/mmdetection
+mmdetection官网依赖：
+  https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
+如下：
+  Linux
+  Python 3.5+ 
+  PyTorch 1.0+ or PyTorch-nightly
+  CUDA 9.0+
+  NCCL 2+
+  GCC 4.9+
+  mmcv
 我的GPU：
-GTX1050
-
+  GTX1050 对应的cuda9.0
 我的配置：
-ubuntu 18.04
-python 3.7
-pytorch 1.1.0 torchvision 0.3.0
-cuda 9.0 cudnn7.（cuda 9.0对应的版本）
-NCCl 未安装（应该和多线程加速有关）
-gcc 5.5.0(我将原来的7降版本为5）
-mmcv 如下安装
-
-
-
-
-安装mmdetection：
-下载conda sh
-下载cuda以及4个补丁
-下载cudnn
-配置conda镜像为清华的,需要手打
-vi .condarc
-  channels:
-    - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
-    - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-    - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-    - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
-    - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123
-    - defaults
-  show_channel_urls: true
-创建环境
-conda create -n open-mmlab python=3.7 
-conda activate open-mmlab
-下载cython
-conda install cython
-下载对应的torch
-conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=9.0
-git clone https://github.com/open-mmlab/mmcv.git
-cd mmcv
-pip install .
-中间有些opencv、matplotlib下载不下来可以下载whl
-git clone https://github.com/open-mmlab/mmdetection.git
-cd mmdetection
-python setup.py develop
+  ubuntu 18.04
+  python 3.7
+  pytorch 1.1.0 torchvision 0.3.0 cudatoolkit 9.0
+  cuda 9.0 cudnn7.（cuda 9.0对应的版本）
+  NCCl 未安装（应该和多线程加速有关）
+  gcc 5.5.0(将原来的7降版本为5，cuda要求6.0以下，torch要求4.9以上）
+  mmcv （如下安装）
+二、安装mmdetection
+（安装cuda、cudnn 参考https://blog.csdn.net/xierhacker/article/details/53035989）
+（安装torch 参考https://blog.csdn.net/jianjuly/article/details/93916871）
+1、下载conda 官网下载.sh文件
+2、降级gcc：
+  sudo apt install gcc-5
+  sudo apt install g++-5
+  sudo mv gcc gcc.bak #备份
+  sudo ln -s gcc-5 gcc #重新链接gcc
+  sudo mv g++ g++.bak #备份
+  sudo ln -s g++-5 g++　#重新链接g++
+3、下载cuda9.0以及4个补丁，官网下载（18.04的可以使用17.04的）
+  配置环境：
+    sudo vim ~/.bashrc
+    export PATH=/usr/local/cuda-9.0/bin:$PATH
+    export LD_LIBRARY_PATH=/usr/local/cuda-9.0/lib64$LD_LIBRARY_PATH
+  重启测试：
+    cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
+    sudo make
+    ./deviceQuery
+4、下载cudnn cuda9.0对应的版本：https://developer.nvidia.com/rdp/cudnn-download
+  sudo cp cudnn.h /usr/local/cuda/include/
+  sudo cp lib* /usr/local/cuda/lib64/ #复制动态链接库
+  cd /usr/local/cuda/lib64/
+  sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件
+  sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接
+  sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接
+5、配置conda镜像
+  vi .condarc
+    channels:
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123
+      - defaults
+    show_channel_urls: true
+6、创建环境
+  conda create -n open-mmlab python=3.7 
+  conda activate open-mmlab
+7、下载cython
+  conda install cython
+8、下载对应的torch、mmcv
+  conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=9.0
+  git clone https://github.com/open-mmlab/mmcv.git
+  cd mmcv
+  pip install .
+  （中间有些opencv、matplotlib下载不下来可以下载whl）
+  git clone https://github.com/open-mmlab/mmdetection.git
+  cd mmdetection
+  python setup.py develop
