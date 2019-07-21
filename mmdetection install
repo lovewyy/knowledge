@@ -67,6 +67,7 @@ mmdetection官网依赖：
   git clone https://github.com/open-mmlab/mmcv.git
   cd mmcv
   pip install .
+  （或 pip install mmcv）
   （中间有些opencv、matplotlib下载不下来可以下载whl）
   git clone https://github.com/open-mmlab/mmdetection.git
   cd mmdetection
