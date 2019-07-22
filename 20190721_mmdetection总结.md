@@ -21,6 +21,7 @@ https://pytorch-cn.readthedocs.io/zh/latest/
 ### 2、pytorch backward
 out.backward()
 <br>https://www.cnblogs.com/JeasonIsCoding/p/10164948.html
+<br>https://www.jianshu.com/p/a105858567df
 ## 四、mmdetection部分
    回到问题本身：最好的开源目标检测算法？是指框架还是精度最高的算法实现呢？如果都指的话大概是mmdet中的cascade mask rcnn x101 dcn版本吧？
 坑点也会有一些，如果自己深度使用的话，建议把mmcv和mmdet不要装到python package，而是作为母目录下面的两个文件夹，方便自己修改。
