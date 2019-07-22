@@ -115,6 +115,8 @@ result = inference_detector(model, img)
 show_result(img, result, model.CLASSES)
 # 测试一个图像列表并保存结果图像
 imgs = ['test1.jpg', 'test2.jpg', 'test3.jpg']
+for i, result in enumerate(inference_detector(model, imgs)):
+    show_result(imgs[i], result, model.CLASSES, out_file='result_{}.jpg'.format(i))
 ```
 ### 1、在mmcv/mmdetection目录下新建my_code/test和checkpoints
 ### 2、下载checkpoints，放到checkpoints文件夹
