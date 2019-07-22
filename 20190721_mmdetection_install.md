@@ -1,6 +1,6 @@
 # mmdetection 总结
 ## 一、说明
-安装的mmdetection版本： 0.6.0(2019.7.20时最新版） 安装在open-mmlab环境上 mmcv/mmdetection
+安装的mmdetection版本: 0.6.0(2019.7.20时最新版),安装在open-mmlab环境上(mmcv/mmdetection)
 mmdetection官网依赖：
   https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
 如下：
@@ -75,6 +75,7 @@ mmdetection官网依赖：
   python setup.py develop
 ## 三、测试或参照github get_start的tools/test
 test.py
+'
 '''
 #coding=utf-8
 from mmdet.apis import init_detector
@@ -93,6 +94,7 @@ show_result(img, result, model.CLASSES)
 # 测试一个图像列表并保存结果图像
 imgs = ['test1.jpg', 'test2.jpg', 'test3.jpg']
 '''
+'
 ### 1、在mmcv/mmdetection目录下新建my_code/test和checkpoints
 ### 2、下载checkpoints，放到checkpoints文件夹
 官网：https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
