@@ -1,9 +1,9 @@
 # mmdetection 总结
 ## 一、说明
-安装的mmdetection版本: 0.6.0(2019.7.20时最新版),安装在open-mmlab环境上(mmcv/mmdetection)
-mmdetection官网依赖：
-  https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
-如下：
+安装的mmdetection版本为0.6.0(2019.7.20时最新版),安装在open-mmlab环境上(mmcv/mmdetection)。
+<br>mmdetection官网依赖：
+https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
+<br>如下：
   Linux
   Python 3.5+ 
   PyTorch 1.0+ or PyTorch-nightly
