@@ -72,7 +72,7 @@ mmdetection官网依赖：
   git clone https://github.com/open-mmlab/mmdetection.git
   cd mmdetection
   python setup.py develop
-三、测试
+三、测试或参照github get_start的tools/test
 test.py
 #
 #coding=utf-8
