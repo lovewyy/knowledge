@@ -1,4 +1,5 @@
-一、说明
+# mmdetection 总结
+## 一、说明
 安装的mmdetection版本： 0.6.0(2019.7.20时最新版） 安装在open-mmlab环境上 mmcv/mmdetection
 mmdetection官网依赖：
   https://github.com/open-mmlab/mmdetection/blob/master/INSTALL.md
@@ -20,18 +21,18 @@ mmdetection官网依赖：
   NCCl 未安装（应该和多线程加速有关）
   gcc 5.5.0(将原来的7降版本为5，cuda要求6.0以下，torch要求4.9以上）
   mmcv （如下安装）
-二、安装mmdetection
+## 二、安装mmdetection
 （安装cuda、cudnn 参考https://blog.csdn.net/xierhacker/article/details/53035989）
 （安装torch 参考https://blog.csdn.net/jianjuly/article/details/93916871）
-1、下载conda 官网下载.sh文件
-2、降级gcc：
+### 1、下载conda 官网下载.sh文件
+### 2、降级gcc：
   sudo apt install gcc-5
   sudo apt install g++-5
   sudo mv gcc gcc.bak #备份
   sudo ln -s gcc-5 gcc #重新链接gcc
   sudo mv g++ g++.bak #备份
   sudo ln -s g++-5 g++　#重新链接g++
-3、下载cuda9.0以及4个补丁，官网下载（18.04的可以使用17.04的）
+### 3、下载cuda9.0以及4个补丁，官网下载（18.04的可以使用17.04的）
   配置环境：
     sudo vim ~/.bashrc
     export PATH=/usr/local/cuda-9.0/bin:$PATH
@@ -40,14 +41,14 @@ mmdetection官网依赖：
     cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
     sudo make
     ./deviceQuery
-4、下载cudnn cuda9.0对应的版本：https://developer.nvidia.com/rdp/cudnn-download
+### 4、下载cudnn cuda9.0对应的版本：https://developer.nvidia.com/rdp/cudnn-download
   sudo cp cudnn.h /usr/local/cuda/include/
   sudo cp lib* /usr/local/cuda/lib64/ #复制动态链接库
   cd /usr/local/cuda/lib64/
   sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件
   sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接
   sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接
-5、配置conda镜像
+### 5、配置conda镜像
   vi .condarc
     channels:
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
@@ -57,12 +58,12 @@ mmdetection官网依赖：
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123
       - defaults
     show_channel_urls: true
-6、创建环境
+### 6、创建环境
   conda create -n open-mmlab python=3.7 
   conda activate open-mmlab
-7、下载cython
+### 7、下载cython
   conda install cython
-8、下载对应的torch、mmcv
+### 8、下载对应的torch、mmcv
   conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=9.0
   git clone https://github.com/open-mmlab/mmcv.git
   cd mmcv
@@ -72,9 +73,9 @@ mmdetection官网依赖：
   git clone https://github.com/open-mmlab/mmdetection.git
   cd mmdetection
   python setup.py develop
-三、测试或参照github get_start的tools/test
+## 三、测试或参照github get_start的tools/test
 test.py
-#
+'''
 #coding=utf-8
 from mmdet.apis import init_detector
 from mmdet.apis import inference_detector
@@ -91,13 +92,13 @@ result = inference_detector(model, img)
 show_result(img, result, model.CLASSES)
 # 测试一个图像列表并保存结果图像
 imgs = ['test1.jpg', 'test2.jpg', 'test3.jpg']
-#
-1、在mmcv/mmdetection目录下新建my_code/test和checkpoints
-2、下载checkpoints，放到checkpoints文件夹
+'''
+### 1、在mmcv/mmdetection目录下新建my_code/test和checkpoints
+### 2、下载checkpoints，放到checkpoints文件夹
 官网：https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
 我的下载：https://s3.ap-northeast-2.amazonaws.com/open-mmlab/mmdetection/models/faster_rcnn_r50_fpn_1x_20181010-3d1b3351.pth
-3、图片三张test123.jpg放到test文件夹
-四、数据准备
+### 3、图片三张test123.jpg放到test文件夹
+## 四、数据准备
 It is recommended to symlink the dataset root to $MMDETECTION/data.
 mkdir data
 ln -s $COCO_ROOT data
