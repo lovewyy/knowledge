@@ -18,7 +18,7 @@
   GTX1050 对应的cuda9.0
 ```
 <br>我的配置：
-```python
+```
   ubuntu 18.04
   python 3.7
   pytorch 1.1.0 torchvision 0.3.0 cudatoolkit 9.0
@@ -32,7 +32,7 @@
 <br>（安装torch 参考https://blog.csdn.net/jianjuly/article/details/93916871）
 ### 1、下载conda 官网下载.sh文件
 ### 2、降级gcc：
-```python
+```
   sudo apt install gcc-5
   sudo apt install g++-5
   sudo mv gcc gcc.bak      # 备份
@@ -85,7 +85,7 @@ vi .condarc
   conda install cython
 ```
 ### 8、下载对应的torch、mmcv
-```python
+```
   conda install pytorch=1.1.0 torchvision=0.3.0 cudatoolkit=9.0
   git clone https://github.com/open-mmlab/mmcv.git
   cd mmcv
