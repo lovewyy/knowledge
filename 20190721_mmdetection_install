@@ -97,3 +97,7 @@ imgs = ['test1.jpg', 'test2.jpg', 'test3.jpg']
 官网：https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
 我的下载：https://s3.ap-northeast-2.amazonaws.com/open-mmlab/mmdetection/models/faster_rcnn_r50_fpn_1x_20181010-3d1b3351.pth
 3、图片三张test123.jpg放到test文件夹
+四、数据准备
+It is recommended to symlink the dataset root to $MMDETECTION/data.
+mkdir data
+ln -s $COCO_ROOT data
