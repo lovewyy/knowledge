@@ -1,4 +1,4 @@
-# lxc-github
+# mmdetection
 
 ## DCIC2019-bar数钢筋比赛
 ## 计算机网络
