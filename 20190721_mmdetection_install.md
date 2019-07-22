@@ -16,29 +16,29 @@
 <br>我的GPU：
 ```
   GTX1050 对应的cuda9.0
-  ```
-<br>我的配置：
 ```
+<br>我的配置：
+```python
   ubuntu 18.04
   python 3.7
   pytorch 1.1.0 torchvision 0.3.0 cudatoolkit 9.0
-  cuda 9.0 cudnn7.（cuda 9.0对应的版本）
-  NCCl 未安装（应该和多线程加速有关）
-  gcc 5.5.0(将原来的7降版本为5，cuda要求6.0以下，torch要求4.9以上）
-  mmcv （如下安装）
+  cuda 9.0 cudnn7.                                #（cuda 9.0对应的版本）
+  NCCl                                            # 未安装（应该和多线程加速有关）
+  gcc 5.5.0                                       # (将原来的7降版本为5，cuda要求6.0以下，torch要求4.9以上）
+  mmcv                                            # （如下安装）
   ```
 ## 二、安装mmdetection
 （安装cuda、cudnn 参考https://blog.csdn.net/xierhacker/article/details/53035989）
 <br>（安装torch 参考https://blog.csdn.net/jianjuly/article/details/93916871）
 ### 1、下载conda 官网下载.sh文件
 ### 2、降级gcc：
-```
+```python
   sudo apt install gcc-5
   sudo apt install g++-5
-  sudo mv gcc gcc.bak #备份
-  sudo ln -s gcc-5 gcc #重新链接gcc
-  sudo mv g++ g++.bak #备份
-  sudo ln -s g++-5 g++　#重新链接g++
+  sudo mv gcc gcc.bak      # 备份
+  sudo ln -s gcc-5 gcc     # 重新链接gcc
+  sudo mv g++ g++.bak      # 备份
+  sudo ln -s g++-5 g++　   # 重新链接g++
 ```
 ### 3、下载cuda9.0以及4个补丁，官网下载（18.04的可以使用17.04的）
   配置环境：
@@ -57,15 +57,15 @@
 <br>参考：https://developer.nvidia.com/rdp/cudnn-download
 ```
   sudo cp cudnn.h /usr/local/cuda/include/
-  sudo cp lib* /usr/local/cuda/lib64/ #复制动态链接库
+  sudo cp lib* /usr/local/cuda/lib64/          # 复制动态链接库
   cd /usr/local/cuda/lib64/
-  sudo rm -rf libcudnn.so libcudnn.so.5 #删除原有动态文件
-  sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5 #生成软衔接
-  sudo ln -s libcudnn.so.5 libcudnn.so #生成软链接
+  sudo rm -rf libcudnn.so libcudnn.so.5        # 删除原有动态文件
+  sudo ln -s libcudnn.so.5.1.5 libcudnn.so.5   # 生成软衔接
+  sudo ln -s libcudnn.so.5 libcudnn.so         # 生成软链接
 ```
 ### 5、配置conda镜像
+vi .condarc
 ```
-  vi .condarc
     channels:
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
