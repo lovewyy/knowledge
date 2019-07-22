@@ -1,4 +1,4 @@
-# mmdetection 总结
+# mmdetection install总结
 ## 一、说明
 安装的mmdetection版本为0.6.0(2019.7.20时最新版),安装在open-mmlab环境上(mmcv/mmdetection)。
 <br>mmdetection官网依赖：
