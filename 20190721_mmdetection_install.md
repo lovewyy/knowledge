@@ -75,8 +75,7 @@ mmdetection官网依赖：
   python setup.py develop
 ## 三、测试或参照github get_start的tools/test
 test.py
-·python
-···
+```python
 #coding=utf-8
 from mmdet.apis import init_detector
 from mmdet.apis import inference_detector
@@ -93,8 +92,7 @@ result = inference_detector(model, img)
 show_result(img, result, model.CLASSES)
 # 测试一个图像列表并保存结果图像
 imgs = ['test1.jpg', 'test2.jpg', 'test3.jpg']
-···
-·
+```
 ### 1、在mmcv/mmdetection目录下新建my_code/test和checkpoints
 ### 2、下载checkpoints，放到checkpoints文件夹
 官网：https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
