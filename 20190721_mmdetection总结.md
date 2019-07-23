@@ -2,6 +2,8 @@
 ## 一、深度学习部分
 ### 1、深度学习500问
 https://github.com/scutan90/DeepLearning-500-questions.git
+#### CNN
+https://www.jianshu.com/p/c0215d26d20a
 ### 2、论文画图
 http://alexlenail.me/NN-SVG/index.html
 https://github.com/HarisIqbal88/PlotNeuralNet
