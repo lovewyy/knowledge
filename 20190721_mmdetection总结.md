@@ -4,6 +4,8 @@
 https://github.com/scutan90/DeepLearning-500-questions.git
 #### CNN
 https://www.jianshu.com/p/c0215d26d20a
+<br> same  = 向上取整（  输入size                  / 步长）
+<br> vaild = 向上取整（（输入size-filter size + 1）/ 步长）
 ### 2、论文画图
 http://alexlenail.me/NN-SVG/index.html
 https://github.com/HarisIqbal88/PlotNeuralNet
