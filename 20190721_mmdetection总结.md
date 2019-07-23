@@ -5,12 +5,12 @@ https://github.com/scutan90/DeepLearning-500-questions.git
 #### CNN
 https://www.jianshu.com/p/c0215d26d20a
 <br> same  = 向上取整（  输入size                  / 步长）
-<br> vaild = 向上取整（（输入size-filter size + 1）/ 步长）
-le-Net5 图片小
-AlexNet 图片大了，dropout，relu
-vggNet 规则卷积
-inception（googlenet） 多个卷积和pooling并行当成一个inception
-resNet 层叠的卷积跳跃连接
+<br> vaild = 向上取整（（输入size-filter size + 1）/ 步长)
+<br> le-Net5 图片小
+<br> AlexNet 图片大了，dropout，relu
+<br> vggNet 规则卷积
+<br> inception（googlenet） 多个卷积和pooling并行当成一个inception
+<br> resNet 层叠的卷积跳跃连接
 ### 2、论文画图
 http://alexlenail.me/NN-SVG/index.html
 https://github.com/HarisIqbal88/PlotNeuralNet
