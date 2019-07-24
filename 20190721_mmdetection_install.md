@@ -65,6 +65,7 @@
 ```
 ### 5、配置conda镜像
 vi .condarc
+<br> 可能出现清华等镜像不可用的问题
 ```
     channels:
       - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
