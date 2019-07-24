@@ -67,14 +67,26 @@
 vi .condarc
 <br> 可能出现清华等镜像不可用的问题
 ```
-    channels:
-      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
-      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
-      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123
-      - defaults
-    show_channel_urls: true
+channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/peterjc123
+  - defaults
+show_channel_urls: true
+```
+<br> or
+```
+channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud//pytorch/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/menpo/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+show_channel_urls: true
 ```
 ### 6、创建环境
 ```
