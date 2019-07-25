@@ -49,5 +49,6 @@ https://www.jiqizhixin.com/articles/2018-10-17-10
 https://github.com/open-mmlab/mmdetection/blob/master/MODEL_ZOO.md
 ### 6、训练自己的模型
 https://github.com/hekesai/MMDetection-Introduce
+https://blog.csdn.net/weicao1990/article/details/93484603
 ## 五、docker部分
 https://www.jianshu.com/p/f19102e0e1e6
