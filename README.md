@@ -8,3 +8,4 @@
 ### 操作系统
 ### v8
 ### mmdetection
+### Python
