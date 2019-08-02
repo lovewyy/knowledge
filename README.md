@@ -1,4 +1,4 @@
-# mmdetection
+# knowledge before
 
 ### DCIC2019-bar数钢筋比赛 
 #### faster rcnn baseline 0.98+
